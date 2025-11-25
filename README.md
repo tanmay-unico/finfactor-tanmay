@@ -69,6 +69,14 @@ Your WAQI token is **never** exposed to the browser. It is read from an environm
    PORT=3000
    ```
 
+   For a quick **demo only**, you can use this sample token:
+
+   ```text
+   AQICN_API_TOKEN=e93e28e375ade73929b68ee88c49e1702971e155
+   ```
+
+   It’s still recommended to request your own token from `https://aqicn.org/api/` for any serious use.
+
 3. Start the server:
 
    ```bash
