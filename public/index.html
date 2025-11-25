@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Air Quality Explorer</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app-root">
+      <header class="app-header">
+        <div class="brand">
+          <div class="brand-logo">AQ</div>
+          <div class="brand-text">
+            <h1>Air Quality Explorer</h1>
+            <p>Search city-wise Air Quality Index.</p>
+          </div>
+        </div>
+        <div class="header-meta"></div>
+      </header>
+
+      <main>
+        <section class="search-section">
+          <div class="search-box">
+            <label for="city-input">City name</label>
+            <div class="search-input-row">
+              <input
+                id="city-input"
+                type="text"
+                placeholder="Try &quot;Delhi&quot;, &quot;Los Angeles&quot;, &quot;London&quot;..."
+                autocomplete="off"
+              />
+              <button id="search-btn" type="button">Search</button>
+            </div>
+            <p class="hint">
+              Tip: Press <span class="kbd">Enter</span> to search. Results are cached on the
+              server for faster subsequent lookups.
+            </p>
+          </div>
+        </section>
+
+        <section id="status-bar" class="status-bar hidden">
+          <span id="status-text"></span>
+        </section>
+
+        <section id="results" class="results hidden">
+          <div class="layout-grid">
+            <div class="card primary-card" id="summary-card">
+              <div class="card-header">
+                <div>
+                  <p class="eyebrow">Current AQI</p>
+                  <h2 id="city-name"></h2>
+                </div>
+                <div class="aqi-chip" id="aqi-category"></div>
+              </div>
+              <div class="aqi-main">
+                <div class="aqi-value-block">
+                  <span class="aqi-value" id="aqi-value"></span>
+                  <span class="aqi-label" id="aqi-label"></span>
+                </div>
+                <div class="aqi-meta">
+                  <p id="aqi-health"></p>
+                  <p class="aqi-subtext">
+                    Dominant pollutant:
+                    <span id="dominant-pol"></span>
+                  </p>
+                  <p class="aqi-subtext">
+                    Last updated:
+                    <span id="updated-at"></span>
+                  </p>
+                  <p class="aqi-subtext">
+                    Location:
+                    <span id="city-geo"></span>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card" id="pollutants-card">
+              <div class="card-header">
+                <p class="eyebrow">Pollutant breakdown</p>
+                <h3>Key measurements</h3>
+              </div>
+              <div id="pollutants-list" class="pollutant-list"></div>
+              <p id="pollutants-empty" class="empty-state hidden">
+                No detailed pollutant measurements were returned for this city.
+              </p>
+            </div>
+
+            <div class="card" id="source-card">
+              <div class="card-header">
+                <p class="eyebrow">Data source</p>
+                <h3>About this data</h3>
+              </div>
+              <div class="source-content">
+                <p>
+                  Air quality data is powered by the
+                  <strong>World Air Quality Index (WAQI)</strong> project.
+                </p>
+                <ul id="attributions"></ul>
+                <p class="source-link">
+                  Learn more at
+                  <a
+                    href="https://aqicn.org/api/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >aqicn.org/api</a
+                  >.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="app-footer">
+      </footer>
+    </div>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
+
+
